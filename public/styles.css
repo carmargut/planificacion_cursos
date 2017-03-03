@@ -1,0 +1,105 @@
+/* Reglas CSS para versión en pantalla */
+
+@import 'https://fonts.googleapis.com/css?family=Open+Sans';
+body {
+    background: #2BC0E4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #2BC0E4, #EAECC6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #2BC0E4, #EAECC6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow-x: hidden;
+}
+
+a {
+    cursor: pointer;
+}
+
+.a_ocultar {
+    display: none;
+}
+
+.blanco {
+    color: white;
+}
+
+.negrita {
+    font-weight: bold;
+}
+
+.cerrar {
+    float: right;
+    font-size: 21px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.cerrar:hover,
+.cerrar:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+.una_vacante {
+    background-color: #fcf0b4;
+    border-color: #e9dda3;
+}
+
+.sin_vacantes {
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+
+.imagen {
+    float: right;
+    width: 100px;
+    border-radius: 7px 7px 7px 7px;
+}
+
+#tabla_buscar_cursos #tabla thead tr td:hover {
+    cursor: default;
+}
+
+#tabla_buscar_cursos #tabla tr:hover {
+    cursor: pointer;
+}
+
+#foto {
+    transition: all .2s ease-in-out;
+}
+
+#foto:hover {
+    transform: scale(1.5);
+    cursor: default;
+}
+
+#boton_login {
+    transition-property: background, border-radius;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+}
+
+#boton_login:hover {
+    background: #1473c7;
+    border-radius: 10%;
+    filter: grayscale(30%);
+}
+
+.borde-oscuro {
+    border: 1px solid #777575 !important;
+}
+
+.hueco_abajo {
+  margin-bottom: 20px;
+}
+
+.fechas{
+  font-size: medium;
+}

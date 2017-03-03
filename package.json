@@ -1,0 +1,28 @@
+{
+  "name": "practica_2",
+  "version": "1.0.0",
+  "description": "Practica 2 AW",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "Miguel y Carlos",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "bootstrap": "^3.3.7",
+    "ejs": "^2.5.5",
+    "express": "^4.14.0",
+    "express-validator": "^3.1.2",
+    "https": "^1.0.0",
+    "multer": "^1.3.0",
+    "passport": "^0.3.2",
+    "passport-http": "^0.3.0",
+    "path": "^0.12.7"
+  }
+}

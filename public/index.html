@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Práctica 2</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <!-- HEADER -->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" id="link_portal_de_cursos">Portal de cursos</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                    <li><a id="link_buscar_cursos">Buscar cursos</a></li>
+                    <li><a id="link_mis_cursos" class="a_ocultar">Mis cursos</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <p class="navbar-text" id="email_usuario">&emsp;</p>
+                    &emsp;
+                    <button id="boton_login" class="btn btn-primary navbar-btn"><span class="glyphicon glyphicon-log-in"> Login </span></button>
+                    &emsp;
+                    <button id="boton_logout" class="btn btn-danger navbar-btn a_ocultar"><span class="glyphicon glyphicon-log-out"> Logout </span></button>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--_________________________________________________________________________________________________________________________________________-->
+    <!-- MENSAJE DE INFORMACIÓN -->
+    <div id="mensaje_de_informacion" class="a_ocultar">
+        <div class="col-sm-offset-1 alert alert-dismissable fade in col-sm-10">
+            <a class="cerrar">&times;</a>
+        </div>
+    </div>
+    <!--_________________________________________________________________________________________________________________________________________-->
+    <!-- LOGIN -->
+    <div id="login" class="a_ocultar">
+        <div class="col-sm-12 col-md-offset-1">
+            <h3>Login:</h3>
+        </div>
+        <form name="formlogin" class="form-horizontal" action="login" method="POST" id="formulario_login">
+            <div class="form-group"></div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="email">Email:</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" name="email" value="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="pwd">Contraseña:</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" name="password">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-8">
+                    <button type="button" class="btn btn-default" id="boton_login_enviar">Enviar</button>
+                    <a id="link_nuevo_usuario">Crear nueva cuenta</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--_________________________________________________________________________________________________________________________________________-->
+    <!-- NUEVO USUARIO -->
+    <div id="nuevo_usuario" class="a_ocultar">
+        <div class="col-sm-12 col-md-offset-1">
+            <h3>Nuevo usuario:</h3>
+        </div>
+        <form class="form-horizontal" action="POST" id="formulario_nuevo_usuario">
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="email">Dirección de correo:*</label>
+                <div class="col-sm-8">
+                    <input type="email" class="form-control" id="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="pwd">Contraseña:*</label>
+                <div class="col-sm-8">
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="nombre">Nombre:*</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="nombre">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="apellidos">Apellidos:*</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" id="apellidos">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="edad">Fecha de nacimiento:*</label>
+                <div class="col-sm-8">
+                    <input class="form-control" id="fechaDeNacimiento" name="date" placeholder="YYYY/MM/DD" type="date" />
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2 col-md-offset-1" for="apellidos">Sexo:*</label>
+                <div class="radio">
+                    <label class="radio-inline">
+                        <input name="sexo" type="radio" id="optradio_hombre" checked="true">Hombre</label>
+                    <label class="radio-inline">
+                        <input name="sexo" type="radio" id="optradio_mujer">Mujer</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <button type="button" class="btn btn-default" id="boton_nuevo_usuario_enviar">Crear nuevo usuario</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--_________________________________________________________________________________________________________________________________________-->
+    <!-- Buscar cursos -->
+    <div class="a_ocultar" id="buscar_cursos">
+        <div class="row">
+            <div class="col-md-11 col-md-offset-1">
+                <h1>Búsqueda de cursos</h1>
+                <div class="col-sm-2">
+                    <h4>Búsqueda por nombre:</h4>
+                </div>
+                <div class="input-group col-sm-8">
+                    <input type="text" class="form-control input-lg" placeholder="Nombre del curso" id="input_buscar_cursos" />
+                    <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="button" id="boton_buscar_cursos">
+                      <i class="glyphicon glyphicon-search"></i>
+                    </button>
+                    </span>
+                </div>
+            </div>
+        </div>
+        </br>
+        <div class="row">
+            <!-- Título de la tabla -->
+            <div class="col-md-10 col-md-offset-1">
+                <table class="table table-hover a_ocultar" id="tabla_buscar_cursos">
+                    <thead>
+                        <tr>
+                            <td class="negrita">Nombre</td>
+                            <td class="negrita">Lugar</td>
+                            <td class="negrita">Inicio</td>
+                            <td class="negrita">Fin</td>
+                            <td class="negrita">Vacantes</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="text-center a_ocultar" id="paginas"></div>
+        <!-- Paginado -->
+        <div class="modal fade" id="modal" role="dialog">
+            <!-- Modal-->
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title" id="modal_titulo"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <img id="foto" class="imagen" src="">
+                        <p id="modal_descripcion"></p>
+                        <p class="negrita">Lugar de impartición:</p>
+                        <p id="modal_direccion"></p>
+                        <p class="negrita">Ciudad:</p>
+                        <p id="modal_localidad"></p>
+                        <p class="negrita">Duración:</p>
+                        <p id="modal_duracion"></p>
+                        <p class="negrita">Horario:</p>
+                        <p id="modal_horario"></p>
+                        <p class="negrita">Número de plazas:</p>
+                        <p id="modal_plazas"></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-primary a_ocultar" data-dismiss="modal" id="boton_inscribirse">Inscribirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--_________________________________________________________________________________________________________________________________________-->
+    <!-- Mis cursos -->
+    <div id="mis_cursos" class="a_ocultar">
+        <div class="col-md-offset-1 col-md-10">
+            <h1>Próximos cursos</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <table id="tabla_proximos_cursos" class="table">
+                    <thead>
+                        <tr>
+                            <td class="negrita">Nombre</td>
+                            <td class="negrita">Lugar</td>
+                            <td class="negrita">Inicio</td>
+                            <td class="negrita">Fin</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-offset-1 col-md-10">
+            <h1>Cursos terminados</h1>
+        </div>
+        <div class="row">
+            <!-- Título de la tabla -->
+            <div class="col-md-offset-1 col-md-10">
+                <table id="tabla_cursos_terminados" class="table">
+                    <thead>
+                        <tr>
+                            <td class="negrita">Nombre</td>
+                            <td class="negrita">Lugar</td>
+                            <td class="negrita">Inicio</td>
+                            <td class="negrita">Fin</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-offset-1 col-md-10">
+            <h1>Tu horario</h1>
+        </div>
+        <div class="row">
+            <!-- Título de la tabla -->
+            <div class="col-md-offset-1 col-md-10">
+                <table id="tabla_horario" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td class="negrita">Hora</td>
+                            <td class="negrita">Lunes</td>
+                            <td class="negrita">Martes</td>
+                            <td class="negrita">Miércoles</td>
+                            <td class="negrita">Jueves</td>
+                            <td class="negrita">Viernes</td>
+                            <td class="negrita">Sábado</td>
+                            <td class="negrita">Domingo</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-1 col-md-2">
+                <button id="semana_anterior" class="btn btn-primary hueco_abajo">Semana anterior</button>
+            </div>
+            <div class="col-md-7">
+                <div id="semana_mostrada" class="text-center fechas"></div>
+            </div>
+            <div class="col-md-2">
+                <button id="semana_siguiente" class="btn btn-primary hueco_abajo">Siguiente semana</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+    </footer>
+    <script src="jquery-3.1.1.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+    <script src="client.js"></script>
+</body>
+
+</html>
