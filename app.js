@@ -15,13 +15,14 @@ var app = express();
 
 var clavePrivada = fs.readFileSync(config.private_key);
 var certificado = fs.readFileSync(config.certificate);
+var ca_bundle = fs.readFileSync(config.ca_bundle);
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressvalidator({}));
 app.use(passport.initialize());
 
-var servidor = https.createServer({ key: clavePrivada, cert: certificado }, app);
+var servidor = https.createServer({ key: clavePrivada, cert: certificado, ca: ca_bundle }, app);
 
 
 passport.use(new passportHTTP.BasicStrategy({ realm: 'Autenticación requerida' },
